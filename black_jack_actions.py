@@ -1,6 +1,7 @@
 def hit(player,deck):
 	player.draw(deck)
 	count_hand(player)
+	check_player_values(player)
 
 def count_hand(player):
 	values = [0]
@@ -29,3 +30,17 @@ def check_player_values(player):
 		player.player_value = max(valid_values)
 	else:
 		player.player_value = 0
+
+def bet(player):
+	print(f"Your Balance: {player.chips}")
+	while True:
+		if(player.chips == 0):
+			print("Nothing to bet")
+			return 0
+		max = player.chips
+		bet = int(input("How much will you bet? "))
+		if(bet > max or 0 >= bet):
+			print(f"Please place a valid bet.\tYour Balance: {player.chips}")
+		else:
+			player.chips -= bet
+			return bet
