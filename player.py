@@ -5,6 +5,7 @@ class Player:
 		self.player_no = player_no
 		self.player_value = -1
 		self.hand_value = [0]
+		self.chips = 10
 
 	def __repr__(self):
 		return f"Player {self.player_no} has {len(self.hand)} cards"
